@@ -31,5 +31,7 @@
   "register_label_numberDocument": "Número de documento",
   "text_register": "Volver atrás",
   "text_register_link": "Click aquí",
-  "error_password": "la contraseña debe tener un minimo de 8 caracteres"
+  "error_password": "la contraseña debe tener un minimo de 8 caracteres",
+  "error_numberdocument": "el documento numérico solo puede ser números"
+
 }

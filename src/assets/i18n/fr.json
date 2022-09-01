@@ -31,5 +31,6 @@
   "register_label_numberDocument": "Numéro de document",
   "text_register": "Retourner",
   "text_register_link": "Cliquez ici",
-  "error_password" : "le mot de passe doit avoir un minimum de 8 caractères"
+  "error_password" : "le mot de passe doit avoir un minimum de 8 caractères",
+  "error_numberdocument" : "le document numéroté ne peut être que des nombres"
 }

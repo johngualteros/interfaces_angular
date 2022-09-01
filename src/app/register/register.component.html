@@ -1,0 +1,161 @@
+<div class="body-register  vh-100 vw-100 d-flex justify-content-center align-items-center">
+<div class="container h-75  shadow-lg">
+  <div class="row h-100">
+    <div class="col d-none d-md-block bg col-md-5 col-lg-5 col-xl-6 rounded">
+    </div>
+    <div class="col containerRegister d-flex align-items-center justify-content-center flex-column redounded-end">
+      <div class="w-100 d-flex justify-content-end align-items-center">
+        <button
+          class="nav-link fw-bold bg-transparent border-0 mb-3"
+          id="icon_mode"
+          (click)="toggleDarkMode()"
+          [(ngModel)]="buttonMode"
+          [innerHTML]="!isDark ? iconMoon : iconSun"
+        ></button>
+        <div
+          id="flags"
+          class="d-flex justify-content-center align-items-center"
+        >
+          <p class="nav-link" (click)="changeLanguage('es')">
+            <img src="../../assets/img/españa.png" alt="españa" width="20" />
+          </p>
+          <p class="nav-link" (click)="changeLanguage('en')">
+            <img
+              src="../../assets/img/reino_unido.png"
+              alt="reino unido"
+              width="20"
+            />
+          </p>
+          <p class="nav-link" (click)="changeLanguage('fr')">
+            <img src="../../assets/img/frances.png" alt="francia" width="20" />
+          </p>
+        </div>
+      </div>
+      <h2 class="fw-bold  text-blue-king display-5 text-center py-3">
+        {{ "register_title" | translate}}
+      </h2>
+      <form class="w-75 "  action="login.html" method="post" #formRegister="ngForm">
+                <div class="mb-4 ">
+                    <label for="name" class="form-label fs-5 fw-bold">
+                      {{ "register_label_name" | translate }}
+                    </label>
+                    <div class="position-relative">
+                      <input
+                        type="text"
+                        class="form-control fs-5 bg-transparent text-gray-light"
+                        placeholder="David"
+                        [(ngModel)]="employee.name"
+                        name="name"
+                        required
+                        #name="ngModel"
+                      />
+                      <span
+                        class="text-danger fw-semibold position-absolute top-0 h-100 end-0 bottom-0"
+                        *ngIf="name.invalid && (name.dirty || name.touched)"
+                      >
+                        <div *ngIf="name.errors?.['required']">
+                          <img src="../../assets/icons-template/icons/close.svg" alt="" width="40">
+                        </div>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="mb-4 ">
+                    <label for="lastname" class="form-label fs-5 fw-bold">
+                      {{ "register_label_lastName" | translate }}
+                    </label>
+                    <div class="position-relative">
+                      <input
+                        type="text"
+                        class="form-control fs-5 bg-transparent text-gray-light"
+                        placeholder="Garcia"
+                        [(ngModel)]="employee.lastname"
+                        name="lastname"
+                        required
+                        #lastname="ngModel"
+                      />
+                      <span
+                        class="text-danger fw-semibold position-absolute top-0 h-100 end-0 bottom-0"
+                        *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)"
+                      >
+                        <div *ngIf="lastname.errors?.['required']">
+                          <img src="../../assets/icons-template/icons/close.svg" alt="" width="40">
+                        </div>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="mb-4 ">
+                    <label for="numberdocument" class="form-label fs-5 fw-bold">
+                      {{ "register_label_numberDocument" | translate }}
+                    </label>
+                    l<div class="position-relative">
+                      <input
+                        type="text"
+                        class="form-control fs-5 bg-transparent text-gray-light"
+                        placeholder="1018455412 example"
+                        [(ngModel)]="employee.numerdocument"
+                        name="numberdocument"
+                        pattern="^[0-9,$]*$"
+                        required
+                        #numberdocument="ngModel"
+                      />
+                      <span
+                        class="text-danger fw-semibold position-absolute top-0 h-100 end-0 bottom-0"
+                        *ngIf="numberdocument.invalid && (numberdocument.dirty || numberdocument.touched)"
+                      >
+                        <div *ngIf="numberdocument.errors?.['required']">
+                          <img src="../../assets/icons-template/icons/close.svg" alt="" width="40">
+                        </div>
+                        <div *ngIf="numberdocument.errors?.['pattern']">
+                          <img src="../../assets/icons-template/icons/close.svg" alt="" width="40">
+                        </div>
+                      </span>
+                    </div>
+                    <div class="text-danger" *ngIf="numberdocument.errors?.['pattern']">
+                      {{ 'error_numberdocument' | translate }}
+                    </div>
+                  </div>
+                <div class="mb-4 ">
+                    <label for="email" class="form-label fs-5 fw-bold">
+                      {{ "register_label_email" | translate }}
+                    </label>
+                    <div class="position-relative">
+                      <input
+                        type="email"
+                        class="form-control fs-5 bg-transparent text-gray-light"
+                        placeholder="user@gmail.com"
+                        [(ngModel)]="employee.email"
+                        name="email"
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                        required
+                        #email="ngModel"
+                      />
+                      <span
+                        class="text-danger fw-semibold position-absolute top-0 h-100 end-0 bottom-0"
+                        *ngIf="email.invalid && (email.dirty || email.touched)"
+                      >
+                        <div *ngIf="email.errors?.['required']">
+                          <img src="../../assets/icons-template/icons/close.svg" alt="" width="40">
+                        </div>
+                        <div *ngIf="email.errors?.['pattern']">
+                          <img src="../../assets/icons-template/icons/close.svg" alt="" width="40">
+                        </div>
+                      </span>
+                    </div>
+                  </div>
+
+                  <div class="d-grid ">
+                    <button class="btn btn-teal py-2 fs-5 fw-bold " [disabled]="formRegister.invalid"><a class="text-decoration-none fw-bold text-dark" href="./login.html">{{ "register_title" | translate }}</a></button>
+                  </div>
+                  <p class="text-center my-3">
+                    <span>
+                      {{ "text_register" | translate }}
+                    </span>
+                    <span><a href="./index.html">
+                      {{ "text_register_link" | translate }}
+                    </a></span>
+                  </p>
+            </form>
+    </div>
+  </div>
+</div>
+</div>

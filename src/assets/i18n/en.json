@@ -33,5 +33,6 @@
   "register_label_numberDocument": "Number document",
   "text_register": "Go Back",
   "text_register_link": "Click here",
-  "error_password": "the password must have a minimum of 8 characters"
+  "error_password": "the password must have a minimum of 8 characters",
+  "error_numberdocument": "the number document only can be numbers"
 }
